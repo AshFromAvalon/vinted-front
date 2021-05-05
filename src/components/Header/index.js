@@ -1,7 +1,7 @@
 import "./style.header.scss";
 
 const Header = () => {
-  return <div></div>;
+  return <div>HELLO</div>;
 };
 
 export default Header;

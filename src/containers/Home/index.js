@@ -3,6 +3,8 @@ import "./style.home.scss";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import Header from "../../components/Header/index";
+
 const axios = require("axios");
 
 const Home = () => {
@@ -27,6 +29,7 @@ const Home = () => {
 
   return !isLoading ? (
     <div>
+      <Header />
       {data.map((offer) => {
         const { _id } = offer;
         return (
