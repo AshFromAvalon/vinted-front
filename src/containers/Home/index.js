@@ -1,11 +1,11 @@
 import "./style.home.scss";
 
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import Header from "../../components/Header/index";
 import Navbar from "../../components/Navbar/index";
-import Offer from "../../components/Offer/index";
+import OfferCard from "../../components/OfferCard/index";
 
 const axios = require("axios");
 
@@ -19,7 +19,6 @@ const Home = () => {
         const response = await axios.get(
           "https://react-vinted-back.herokuapp.com/offers"
         );
-        console.log(response.data);
         setData(response.data.offers);
         setIsLoading(false);
       } catch (error) {
@@ -35,7 +34,15 @@ const Home = () => {
       <Header />
       <div className="offers">
         {data.map((offer, index) => {
-          return <Offer key={index} data={offer} />;
+          return (
+            <Link
+              to={`/product/${offer._id}`}
+              className="offer-card"
+              style={{ textDecoration: "none" }}
+            >
+              <OfferCard key={index} data={offer} />
+            </Link>
+          );
         })}
       </div>
     </div>
