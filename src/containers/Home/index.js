@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import Header from "../../components/Header/index";
+import Navbar from "../../components/Navbar/index";
+import Offer from "../../components/Offer/index";
 
 const axios = require("axios");
 
@@ -29,15 +31,13 @@ const Home = () => {
 
   return !isLoading ? (
     <div>
+      <Navbar />
       <Header />
-      {data.map((offer) => {
-        const { _id } = offer;
-        return (
-          <div key={_id}>
-            <Link to={`/product/${_id}`}>{offer.product_name}</Link>
-          </div>
-        );
-      })}
+      <div className="offers">
+        {data.map((offer, index) => {
+          return <Offer key={index} data={offer} />;
+        })}
+      </div>
     </div>
   ) : (
     <div className="Loading">Loading...</div>

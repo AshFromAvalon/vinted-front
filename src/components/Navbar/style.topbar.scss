@@ -1,0 +1,19 @@
+@import "../../styles/styles.scss";
+
+.topbar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $bg-grey;
+
+  .topbar-container {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .topbar-logo {
+      width: 80px;
+    }
+  }
+}
