@@ -8,6 +8,8 @@ import OfferCard from "../../components/OfferCard/index";
 
 const axios = require("axios");
 
+// COMPONENT
+
 const Home = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -29,7 +31,7 @@ const Home = () => {
   }, []);
 
   return !isLoading ? (
-    <div>
+    <div className="site-wrap">
       <Header />
       <div className="offers-container">
         <div className="offers-container-wrap">

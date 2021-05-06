@@ -1,0 +1,120 @@
+@import "../../styles/styles.scss";
+
+.bckg {
+  width: 100%;
+  height: 100vh;
+  background-color: $bg-grey;
+  padding-top: 60px;
+}
+
+.product-container {
+  @include container;
+  display: flex;
+  justify-content: space-around;
+
+  .product-image-container {
+    height: 600px;
+
+    .product-image {
+      width: 400px;
+      height: 100%;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .product-infos-container {
+    width: calc(100% - 900px);
+    height: 600px;
+    background-color: white;
+    padding: 30px 40px;
+
+    .product-infos-price {
+      font-family: $font-main;
+      font-size: 1.2rem;
+    }
+
+    .product-infos-details {
+      font-family: $font-main;
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin: 30px 0;
+      display: flex;
+
+      .product-infos-details-keys {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        .product-infos-details-key {
+          margin: 4px 0;
+          color: $prim-grey;
+        }
+      }
+      .product-infos-details-values {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        .product-infos-details-value {
+          margin: 4px 0;
+          color: $prim-black;
+        }
+      }
+    }
+
+    .serpartor {
+      width: 100%;
+      border-top: 1px solid #d6dadc;
+      margin: 70px 0;
+    }
+    .product-infos-description {
+      display: flex;
+      flex-direction: column;
+      .product-infos-title {
+        font-family: $font-main;
+        font-size: 01rem;
+        font-weight: 400;
+        margin-bottom: 15px;
+      }
+      .product-infos-description {
+        font-family: $font-main;
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: $prim-grey;
+        margin-bottom: 15px;
+      }
+    }
+    .product-infos-owner {
+      display: flex;
+      align-items: center;
+      margin-bottom: 52px;
+
+      .product-infos-owner-username {
+        font-family: $font-main;
+        font-size: 0.9rem;
+        font-weight: 400;
+        margin-left: 10px;
+      }
+    }
+    .product-cta {
+      width: 100%;
+      margin-top: 30px;
+      font-family: $font-main;
+      background-color: $prim-blue;
+      color: white;
+      height: 40px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        cursor: pointer;
+      }
+      &:active {
+        opacity: 0.7;
+      }
+    }
+  }
+}

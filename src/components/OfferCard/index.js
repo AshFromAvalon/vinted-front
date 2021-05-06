@@ -1,14 +1,12 @@
 import "./style.offercard.scss";
 
+import Avatar from "../Avatar/index";
+
 const OfferCard = ({ data }) => {
   return (
     <div className="offer-card-container">
       <div className="offer-card-owner">
-        <img
-          className="offer-card-owner-avatar"
-          src={data.owner.account.avatar.secure_url}
-          alt=""
-        />
+        <Avatar imageUrl={data.owner.account.avatar.secure_url} />
         <span className="offer-card-owner-username">
           {data.owner.account.username}
         </span>

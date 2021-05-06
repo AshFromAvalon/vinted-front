@@ -1,35 +1,58 @@
 @import "../../styles/styles.scss";
 
 .topbar {
-  height: 50px;
+  height: 70px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   border-bottom: 1px solid $bg-grey;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top: 0px;
 
   .topbar-container {
     @include container;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 16px;
 
     .topbar-left {
       display: flex;
       align-items: center;
       .topbar-logo {
         width: 80px;
-        margin-right: 100px;
+        margin-right: 50px;
       }
       .topbar-search {
         display: flex;
         align-items: center;
-        padding-left: 10px;
-        width: 300px;
+        width: 600px;
         height: 30px;
-        border-radius: 5px;
-        background-color: $bg-grey;
-        font-family: $font-main;
-        font-weight: 100;
-        color: $prim-grey;
+        position: relative;
+
+        .search-icon {
+          position: absolute;
+          left: 10px;
+          color: $prim-grey;
+          height: 0.7rem;
+          height: 100%;
+          display: flex;
+          align-items: center;
+        }
+
+        .topbar-search-input {
+          width: 100%;
+          height: 100%;
+          border: none;
+          padding-left: 40px;
+          background-color: $bg-grey;
+          font-family: $font-main;
+          font-weight: 100;
+          font-size: 0.9rem;
+          border-radius: 5px;
+        }
       }
     }
 
@@ -64,17 +87,22 @@
   }
 }
 
+.top-navbar {
+  width: 100%;
+  background-color: white;
+  padding: 10px 0;
+  border-bottom: 1px solid $bg-grey;
+}
 .topbar-nav-container {
   @include container;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  .topbar-nav {
+  .topbar-nav-menu {
     height: 30px;
     display: flex;
     align-items: center;
-    margin-top: 10px;
 
     span {
       margin-right: 10px;
