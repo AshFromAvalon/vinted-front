@@ -1,8 +1,15 @@
 @import "../../styles/styles.scss";
 
 .offers-container {
-  @include container;
-  margin-top: 30px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+
+  .offers-container-wrap {
+    width: 90%;
+    max-width: 1280px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 }

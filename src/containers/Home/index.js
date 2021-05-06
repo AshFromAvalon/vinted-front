@@ -31,17 +31,19 @@ const Home = () => {
     <div>
       <Header />
       <div className="offers-container">
-        {data.map((offer, index) => {
-          return (
-            <Link
-              to={`/product/${offer._id}`}
-              className="offer-card"
-              key={index}
-            >
-              <OfferCard data={offer} />
-            </Link>
-          );
-        })}
+        <div className="offers-container-wrap">
+          {data.map((offer, index) => {
+            return (
+              <Link
+                to={`/product/${offer._id}`}
+                className="offer-card"
+                key={index}
+              >
+                <OfferCard data={offer} />
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </div>
   ) : (

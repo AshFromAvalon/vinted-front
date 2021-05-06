@@ -1,18 +1,17 @@
 @import "../../styles/styles.scss";
 
 .offer-card {
-  width: calc((1200px / 5) - 20px);
-  margin-bottom: 20px;
-  &:not(:last-child) {
-    margin-right: 16px;
-  }
+  width: calc((100% / 5) - 20px);
+  min-width: 200px;
+  margin-bottom: 40px;
+  margin: 0 10px;
 
   .offer-card-owner {
     display: flex;
     align-items: center;
 
     .offer-card-owner-username {
-      color: $text-grey;
+      color: $prim-grey;
       margin-left: 10px;
     }
     .offer-card-owner-avatar {
