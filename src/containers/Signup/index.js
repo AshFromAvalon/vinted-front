@@ -34,7 +34,7 @@ const Signup = ({ setUserLogCookie }) => {
     postData();
   };
   return (
-    <div className="signup">
+    <div className="site-wrap">
       <div className="signup-container">
         <h2>Sign up</h2>
         <form

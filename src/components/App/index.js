@@ -12,9 +12,11 @@ import Signup from "../../containers/Signup/index";
 import Signin from "../../containers/Signin/index";
 // Components
 import Topbar from "../Topbar/index";
+import Modal from "../Modal/index";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
+  const [showModal, setShowModal] = useState(false);
 
   const setUserLogCookie = (token) => {
     if (token) {
@@ -28,14 +30,23 @@ function App() {
 
   return (
     <Router>
-      <Topbar userToken={userToken} setUserLogCookie={setUserLogCookie} />
+      <Topbar
+        userToken={userToken}
+        setUserLogCookie={setUserLogCookie}
+        setShowModal={setShowModal}
+      />
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        setUserLogCookie={setUserLogCookie}
+      />
       <Switch>
         <Route path="/product/:id">
           <Product />
         </Route>
-        <Route path="/signup/">
+        {/* <Route path="/signup/">
           <Signup setUserLogCookie={setUserLogCookie} />
-        </Route>
+        </Route> */}
         <Route path="/signin/">
           <Signin setUserLogCookie={setUserLogCookie} />
         </Route>

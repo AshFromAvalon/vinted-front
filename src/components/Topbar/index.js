@@ -5,13 +5,17 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import { Link, useHistory } from "react-router-dom";
 
-const Topbar = ({ userToken, setUserLogCookie }) => {
+const Topbar = ({ userToken, setUserLogCookie, setShowModal }) => {
   const searchIcon = <FontAwesomeIcon icon={faSearch} />;
 
   const history = useHistory();
   const handleSignout = () => {
     setUserLogCookie(null);
     history.push("/");
+  };
+
+  const handleShowModal = () => {
+    setShowModal(true);
   };
 
   return (
@@ -42,7 +46,9 @@ const Topbar = ({ userToken, setUserLogCookie }) => {
                   <button className="btn signin">Sign in</button>
                 </Link>
                 <Link to="/signup/">
-                  <button className="btn signup">Sign up</button>
+                  <button className="btn signup" onClick={handleShowModal}>
+                    Sign up
+                  </button>
                 </Link>
               </>
             )}
