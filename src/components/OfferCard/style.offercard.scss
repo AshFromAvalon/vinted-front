@@ -1,9 +1,10 @@
 @import "../../styles/styles.scss";
 
 .offer-card {
-  width: 300px;
+  width: calc((1200px / 5) - 20px);
+  margin-bottom: 20px;
   &:not(:last-child) {
-    margin-right: 20px;
+    margin-right: 16px;
   }
 
   .offer-card-owner {
@@ -22,9 +23,13 @@
   }
 
   .offer-card-cover {
-    height: 280px;
-    border: 1px solid black;
+    height: 340px;
     margin: 10px 0;
+    .offer-card-cover-image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 
   .offer-card-infos {

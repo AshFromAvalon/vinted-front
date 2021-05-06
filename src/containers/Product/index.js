@@ -31,6 +31,10 @@ const Product = () => {
       <span>{offer.product_description}</span>
       <br />
       <span>{offer.product_price}</span>
+      <br />
+      <div>
+        <img src={offer.product_image.secure_url} alt="" />
+      </div>
     </div>
   ) : (
     <div className="loading">Loading...</div>

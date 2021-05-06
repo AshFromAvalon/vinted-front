@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Header from "../../components/Header/index";
-import Navbar from "../../components/Navbar/index";
 import OfferCard from "../../components/OfferCard/index";
 
 const axios = require("axios");
@@ -30,17 +29,16 @@ const Home = () => {
 
   return !isLoading ? (
     <div>
-      <Navbar />
       <Header />
-      <div className="offers">
+      <div className="offers-container">
         {data.map((offer, index) => {
           return (
             <Link
               to={`/product/${offer._id}`}
               className="offer-card"
-              style={{ textDecoration: "none" }}
+              key={index}
             >
-              <OfferCard key={index} data={offer} />
+              <OfferCard data={offer} />
             </Link>
           );
         })}

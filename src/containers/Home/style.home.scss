@@ -1,7 +1,8 @@
 @import "../../styles/styles.scss";
 
-.offers {
+.offers-container {
   @include container;
   margin-top: 30px;
   display: flex;
+  flex-wrap: wrap;
 }
