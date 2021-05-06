@@ -2,7 +2,7 @@ import "./style.offercard.scss";
 
 const OfferCard = ({ data }) => {
   return (
-    <div>
+    <div className="offer-card-container">
       <div className="offer-card-owner">
         <img
           className="offer-card-owner-avatar"
@@ -21,8 +21,8 @@ const OfferCard = ({ data }) => {
         />
       </div>
       <div className="offer-card-infos">
-        <span>{data.product_price} €</span>
-        <span>{data.product_name}</span>
+        <span className="offer-card-infos-price">{data.product_price} €</span>
+        <span className="offer-card-infos-title">{data.product_name}</span>
       </div>
     </div>
   );

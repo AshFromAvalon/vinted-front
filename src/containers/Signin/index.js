@@ -1,18 +1,17 @@
-import "./style.signup.scss";
+import "./style.signin.scss";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const axios = require("axios");
 
-const Signup = ({ setUserLogCookie }) => {
+const Signin = ({ setUserLogCookie }) => {
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const myApi = "https://react-vinted-back.herokuapp.com/user/sign-up";
-  const ReacteurApi = "https://lereacteur-vinted-api.herokuapp.com/user/signup";
-
   const history = useHistory();
+
+  const myApi = "https://react-vinted-back.herokuapp.com/user/login";
+  const ReacteurApi = "https://lereacteur-vinted-api.herokuapp.com/user/login";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,9 +19,7 @@ const Signup = ({ setUserLogCookie }) => {
     const postData = async () => {
       try {
         const response = await axios.post(ReacteurApi, {
-          username: username,
           email: email,
-          phone: "00000000",
           password: password,
         });
         setUserLogCookie(response.data.token);
@@ -34,31 +31,23 @@ const Signup = ({ setUserLogCookie }) => {
     postData();
   };
   return (
-    <div className="signup">
-      <div className="signup-container">
-        <h2>Sign up</h2>
+    <div className="signin">
+      <div className="signin-container">
+        <h2>Sign in</h2>
         <form
           action="#"
-          className="signup-form"
+          className="signin-form"
           onSubmit={(event) => {
             handleSubmit(event);
           }}
         >
           <input
             onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-            type="text"
-            placeholder="username"
-            className="signup-form-input"
-          />
-          <input
-            onChange={(event) => {
               setEmail(event.target.value);
             }}
             type="email"
             placeholder="email adress"
-            className="signup-form-input"
+            className="signin-form-input"
           />
           <input
             onChange={(event) => {
@@ -66,12 +55,12 @@ const Signup = ({ setUserLogCookie }) => {
             }}
             type="password"
             placeholder="password"
-            className="signup-form-input"
+            className="signin-form-input"
           />
           <input
             type="submit"
             value="Validate"
-            className="signup-form-submit"
+            className="signin-form-submit"
           />
         </form>
       </div>
@@ -79,4 +68,4 @@ const Signup = ({ setUserLogCookie }) => {
   );
 };
 
-export default Signup;
+export default Signin;

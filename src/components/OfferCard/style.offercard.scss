@@ -3,8 +3,11 @@
 .offer-card {
   width: calc((100% / 5) - 20px);
   min-width: 200px;
-  margin-bottom: 40px;
   margin: 0 10px;
+
+  .offer-card-container {
+    margin-bottom: 40px;
+  }
 
   .offer-card-owner {
     display: flex;
@@ -13,6 +16,9 @@
     .offer-card-owner-username {
       color: $prim-grey;
       margin-left: 10px;
+      font-family: $font-main;
+      font-weight: 100;
+      font-size: 0.8rem;
     }
     .offer-card-owner-avatar {
       height: 25px;
@@ -34,5 +40,15 @@
   .offer-card-infos {
     display: flex;
     flex-direction: column;
+    font-family: $font-main;
+    .offer-card-infos-price {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+    .offer-card-infos-title {
+      font-size: 0.9rem;
+      color: $prim-grey;
+      font-weight: 100;
+    }
   }
 }

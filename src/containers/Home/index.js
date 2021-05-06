@@ -12,12 +12,13 @@ const Home = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
+  const myApi = "https://react-vinted-back.herokuapp.com/offers";
+  const ReacteurApi = "https://lereacteur-vinted-api.herokuapp.com/offers";
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://react-vinted-back.herokuapp.com/offers"
-        );
+        const response = await axios.get(ReacteurApi);
         setData(response.data.offers);
         setIsLoading(false);
       } catch (error) {
@@ -33,6 +34,7 @@ const Home = () => {
       <div className="offers-container">
         <div className="offers-container-wrap">
           {data.map((offer, index) => {
+            console.log(offer);
             return (
               <Link
                 to={`/product/${offer._id}`}

@@ -1,9 +1,15 @@
 import "./style.topbar.scss";
 import logo from "../../assets/images/Vinted_logo.png";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-const Topbar = () => {
+const Topbar = ({ userToken, setUserLogCookie }) => {
+  const history = useHistory();
+  const handleSignout = () => {
+    setUserLogCookie(null);
+    history.push("/");
+  };
+
   return (
     <>
       <div className="topbar">
@@ -13,10 +19,20 @@ const Topbar = () => {
             <div className="topbar-search">seacrh</div>
           </div>
           <div className="topbar-auth">
-            <button className="btn signin">Sign in</button>
-            <Link to="/signup/">
-              <button className="btn signup">Sign up</button>
-            </Link>
+            {userToken ? (
+              <button onClick={handleSignout} className="btn signout">
+                Sign out
+              </button>
+            ) : (
+              <>
+                <Link to="/signin/">
+                  <button className="btn signin">Sign in</button>
+                </Link>
+                <Link to="/signup/">
+                  <button className="btn signup">Sign up</button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

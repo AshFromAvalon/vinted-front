@@ -10,12 +10,13 @@ const Product = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
 
+  const myApi = "https://react-vinted-back.herokuapp.com/offer/";
+  const ReacteurApi = "https://lereacteur-vinted-api.herokuapp.com/offer/";
+
   useEffect(() => {
     const fetchOffer = async () => {
       try {
-        const response = await axios.get(
-          `https://react-vinted-back.herokuapp.com/offer/${id}`
-        );
+        const response = await axios.get(`${ReacteurApi}${id}`);
         setOffer(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -23,7 +24,8 @@ const Product = () => {
       }
     };
     fetchOffer();
-  }, []);
+  }, [id]);
+
   return !isLoading ? (
     <div>
       <span>{offer.product_name}</span>

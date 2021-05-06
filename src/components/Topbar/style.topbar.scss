@@ -27,6 +27,9 @@
         height: 30px;
         border-radius: 5px;
         background-color: $bg-grey;
+        font-family: $font-main;
+        font-weight: 100;
+        color: $prim-grey;
       }
     }
 
@@ -35,6 +38,8 @@
       padding: 5px 20px;
       border-radius: 5px;
       margin-left: 10px;
+      font-family: $font-main;
+      font-weight: 100;
       &:hover {
         cursor: pointer;
       }
@@ -49,6 +54,12 @@
       color: white;
       background-color: $prim-blue;
       border: 1px solid $prim-blue;
+    }
+
+    .signout {
+      color: white;
+      background-color: $prim-black;
+      border: 1px solid $prim-black;
     }
   }
 }

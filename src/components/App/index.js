@@ -1,24 +1,43 @@
 import "./style.app.scss";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// Dependencies
+import Cookies from "js-cookie";
+import { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Containers
 import Home from "../../containers/Home/index";
 import Product from "../../containers/Product/index";
 import Signup from "../../containers/Signup/index";
+import Signin from "../../containers/Signin/index";
 // Components
 import Topbar from "../Topbar/index";
 
 function App() {
+  const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
+
+  const setUserLogCookie = (token) => {
+    if (token) {
+      Cookies.set("userToken", token, { expires: 14 });
+      setUserToken(token);
+    } else {
+      Cookies.remove("userToken");
+      setUserToken(null);
+    }
+  };
+
   return (
     <Router>
-      <Topbar />
+      <Topbar userToken={userToken} setUserLogCookie={setUserLogCookie} />
       <Switch>
         <Route path="/product/:id">
           <Product />
         </Route>
         <Route path="/signup/">
-          <Signup />
+          <Signup setUserLogCookie={setUserLogCookie} />
+        </Route>
+        <Route path="/signin/">
+          <Signin setUserLogCookie={setUserLogCookie} />
         </Route>
         <Route path="/">
           <Home />
