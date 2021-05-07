@@ -17,6 +17,7 @@ import Modal from "../Modal/index";
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const [showModal, setShowModal] = useState(false);
+  const [search, setSearch] = useState("");
 
   const setUserLogCookie = (token) => {
     if (token) {
@@ -34,6 +35,8 @@ function App() {
         userToken={userToken}
         setUserLogCookie={setUserLogCookie}
         setShowModal={setShowModal}
+        search={search}
+        setSearch={setSearch}
       />
       <Modal
         showModal={showModal}
@@ -44,14 +47,11 @@ function App() {
         <Route path="/product/:id">
           <Product />
         </Route>
-        {/* <Route path="/signup/">
-          <Signup setUserLogCookie={setUserLogCookie} />
-        </Route> */}
         <Route path="/signin/">
           <Signin setUserLogCookie={setUserLogCookie} />
         </Route>
         <Route path="/">
-          <Home />
+          <Home search={search} />
         </Route>
       </Switch>
     </Router>

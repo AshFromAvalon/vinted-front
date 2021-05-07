@@ -1,20 +1,49 @@
 @import "../../styles/styles.scss";
 
-.signin {
+.site-wrap {
   .signin-container {
     @include container;
-    padding: 30px 0;
+    padding: 50px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
+    h2 {
+      font-family: $font-main;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
     .signin-form {
-      margin: 20px 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 130px;
+
+      .signin-form-input {
+        border: none;
+        outline: none;
+        font-family: $font-main;
+        border-bottom: 1px solid #d5cdcd;
+        padding: 10px;
+        background-color: $bg-grey;
+        margin: 10px 0;
+      }
+      .signin-form-submit {
+        margin: 20px 0;
+        border: none;
+        font-family: $font-main;
+        color: white;
+        background-color: $prim-blue;
+        padding: 10px 0;
+        border-radius: 5px;
+        &:hover {
+          cursor: pointer;
+        }
+        &:active {
+          opacity: 0.7;
+        }
+      }
     }
   }
 }

@@ -31,7 +31,7 @@ const Signin = ({ setUserLogCookie }) => {
     postData();
   };
   return (
-    <div className="signin">
+    <div className="site-wrap">
       <div className="signin-container">
         <h2>Sign in</h2>
         <form
@@ -57,11 +57,7 @@ const Signin = ({ setUserLogCookie }) => {
             placeholder="password"
             className="signin-form-input"
           />
-          <input
-            type="submit"
-            value="Validate"
-            className="signin-form-submit"
-          />
+          <input type="submit" value="Sign in" className="signin-form-submit" />
         </form>
       </div>
     </div>

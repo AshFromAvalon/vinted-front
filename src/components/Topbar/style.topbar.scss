@@ -52,6 +52,9 @@
           font-weight: 100;
           font-size: 0.9rem;
           border-radius: 5px;
+          &:focus {
+            outline: none;
+          }
         }
       }
     }
@@ -62,7 +65,7 @@
       border-radius: 5px;
       margin-left: 10px;
       font-family: $font-main;
-      font-weight: 100;
+      font-weight: 300;
       &:hover {
         cursor: pointer;
       }

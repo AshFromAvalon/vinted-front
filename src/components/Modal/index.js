@@ -69,7 +69,7 @@ const Modal = ({ showModal, setShowModal, setUserLogCookie }) => {
                 setUsername(event.target.value);
               }}
               type="text"
-              placeholder="username"
+              placeholder="Pseudo"
               className="signup-form-input"
             />
             <input
@@ -77,7 +77,7 @@ const Modal = ({ showModal, setShowModal, setUserLogCookie }) => {
                 setEmail(event.target.value);
               }}
               type="email"
-              placeholder="email adress"
+              placeholder="adresse email"
               className="signup-form-input"
             />
             <input
@@ -85,12 +85,12 @@ const Modal = ({ showModal, setShowModal, setUserLogCookie }) => {
                 setPassword(event.target.value);
               }}
               type="password"
-              placeholder="password"
+              placeholder="mot de passe"
               className="signup-form-input"
             />
             <input
               type="submit"
-              value="Validate"
+              value="Je m'inscris"
               className={disableSubmit}
               disabled={isDisabled}
             />

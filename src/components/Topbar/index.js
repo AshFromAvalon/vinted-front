@@ -4,9 +4,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import { Link, useHistory } from "react-router-dom";
+import { useState } from "react";
 
-const Topbar = ({ userToken, setUserLogCookie, setShowModal }) => {
+const Topbar = ({
+  userToken,
+  setUserLogCookie,
+  setShowModal,
+  search,
+  setSearch,
+}) => {
   const searchIcon = <FontAwesomeIcon icon={faSearch} />;
+
+  const [placeholder, setPlaceholder] = useState("Chercher");
+
+  const handleFocus = () => {
+    setPlaceholder("");
+  };
+
+  const handleBlur = () => {
+    setPlaceholder("Chercher");
+  };
+
+  const handleChange = (event) => {
+    setSearch(event);
+    console.log(search);
+  };
 
   const history = useHistory();
   const handleSignout = () => {
@@ -31,25 +53,26 @@ const Topbar = ({ userToken, setUserLogCookie, setShowModal }) => {
               <input
                 type="text"
                 className="topbar-search-input"
-                value="Search"
+                placeholder={placeholder}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                onChange={(event) => handleChange(event.target.value)}
               />
             </div>
           </div>
           <div className="topbar-auth">
             {userToken ? (
               <button onClick={handleSignout} className="btn signout">
-                Sign out
+                Déconnecter
               </button>
             ) : (
               <>
                 <Link to="/signin/">
-                  <button className="btn signin">Sign in</button>
+                  <button className="btn signin">Se connecter</button>
                 </Link>
-                <Link to="/signup/">
-                  <button className="btn signup" onClick={handleShowModal}>
-                    Sign up
-                  </button>
-                </Link>
+                <button className="btn signup" onClick={handleShowModal}>
+                  S'inscrire
+                </button>
               </>
             )}
           </div>

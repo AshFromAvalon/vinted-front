@@ -10,7 +10,7 @@ const axios = require("axios");
 
 // COMPONENT
 
-const Home = () => {
+const Home = ({ search }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,7 +20,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(ReacteurApi);
+        const response = await axios.get(`${ReacteurApi}?title=${search}`);
         setData(response.data.offers);
         setIsLoading(false);
       } catch (error) {
@@ -28,7 +28,7 @@ const Home = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [search]);
 
   return !isLoading ? (
     <div className="site-wrap">
@@ -36,7 +36,6 @@ const Home = () => {
       <div className="offers-container">
         <div className="offers-container-wrap">
           {data.map((offer, index) => {
-            console.log(offer);
             return (
               <Link
                 to={`/product/${offer._id}`}
