@@ -10,7 +10,7 @@ const axios = require("axios");
 
 // COMPONENT
 
-const Home = ({ search, sortPrice }) => {
+const Home = ({ search, sortPrice, minVal, maxVal }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,7 +21,7 @@ const Home = ({ search, sortPrice }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${ReacteurApi}?title=${search}&sort=${sortPrice}`
+          `${ReacteurApi}?title=${search}&sort=${sortPrice}&priceMin=${minVal}&priceMax=${maxVal}`
         );
         setData(response.data.offers);
         setIsLoading(false);
@@ -30,7 +30,7 @@ const Home = ({ search, sortPrice }) => {
       }
     };
     fetchData();
-  }, [search, sortPrice]);
+  }, [search, sortPrice, minVal, maxVal]);
 
   return !isLoading ? (
     <div className="site-wrap">

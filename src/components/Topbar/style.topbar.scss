@@ -102,6 +102,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 15px 0;
 
   .topbar-nav-menu {
     height: 30px;
@@ -112,7 +113,12 @@
     .topbar-nav-menu-sort {
       display: flex;
       align-items: center;
-      margin-right: 20px;
+      margin-right: 30px;
+    }
+
+    .topbar-nav-menu-range {
+      display: flex;
+      align-items: center;
     }
 
     .topbar-nav-menu-text {
@@ -120,6 +126,7 @@
       font-size: 0.8rem;
       font-weight: 300;
       color: $prim-grey;
+      margin-right: 10px;
     }
 
     input[type="checkbox"] {

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { useState, useRef, useCallback, useEffect } from "react";
 
-const Slider = ({ min, max }) => {
+const Slider = ({ min, max, minVal, maxVal, setMinVal, setMaxVal }) => {
   // Set each prop as type number
   Slider.propTypes = {
     min: PropTypes.number.isRequired,
@@ -11,8 +11,8 @@ const Slider = ({ min, max }) => {
   };
 
   // Creating the state variables
-  const [minVal, setMinVal] = useState(0);
-  const [maxVal, setMaxVal] = useState(20);
+  // const [minVal, setMinVal] = useState(min);
+  // const [maxVal, setMaxVal] = useState(max);
 
   // Creating the refs
   const minValRef = useRef(min);

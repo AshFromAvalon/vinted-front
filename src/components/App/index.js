@@ -20,6 +20,8 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [search, setSearch] = useState("");
   const [sortPrice, setSortPrice] = useState("price-asc");
+  const [minVal, setMinVal] = useState(0);
+  const [maxVal, setMaxVal] = useState(40);
 
   const setUserLogCookie = (token) => {
     if (token) {
@@ -41,9 +43,16 @@ function App() {
         setSearch={setSearch}
         sortPrice={sortPrice}
         setSortPrice={setSortPrice}
-      />
-      <Slider min={0} max={5000} />
-      <Topbar />
+      >
+        <Slider
+          min={0}
+          max={100}
+          minVal={minVal}
+          maxVal={maxVal}
+          setMinVal={setMinVal}
+          setMaxVal={setMaxVal}
+        />
+      </Topbar>
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}
@@ -60,7 +69,12 @@ function App() {
           <Slider />
         </Route>
         <Route path="/">
-          <Home search={search} sortPrice={sortPrice} />
+          <Home
+            search={search}
+            sortPrice={sortPrice}
+            minVal={minVal}
+            maxVal={maxVal}
+          />
         </Route>
       </Switch>
     </Router>

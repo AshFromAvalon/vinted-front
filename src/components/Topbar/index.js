@@ -97,11 +97,11 @@ const Topbar = ({
                   checked={checked}
                   onChange={handleSortChange}
                 />
-                <label htmlFor="switch">Toggle</label>
+                <label htmlFor="switch"></label>
               </div>
               <div className="topbar-nav-menu-range">
                 <span className="topbar-nav-menu-text">price range</span>
-                <div></div>
+                <div className="topbar-nav-menu-range-slider">{children}</div>
               </div>
             </div>
           </div>
