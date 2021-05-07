@@ -8,9 +8,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Containers
 import Home from "../../containers/Home/index";
 import Product from "../../containers/Product/index";
-import Signup from "../../containers/Signup/index";
 import Signin from "../../containers/Signin/index";
+
 // Components
+import Slider from "../Slider/index";
 import Topbar from "../Topbar/index";
 import Modal from "../Modal/index";
 
@@ -18,6 +19,7 @@ function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const [showModal, setShowModal] = useState(false);
   const [search, setSearch] = useState("");
+  const [sortPrice, setSortPrice] = useState("price-asc");
 
   const setUserLogCookie = (token) => {
     if (token) {
@@ -37,7 +39,11 @@ function App() {
         setShowModal={setShowModal}
         search={search}
         setSearch={setSearch}
+        sortPrice={sortPrice}
+        setSortPrice={setSortPrice}
       />
+      <Slider min={0} max={5000} />
+      <Topbar />
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}
@@ -50,8 +56,11 @@ function App() {
         <Route path="/signin/">
           <Signin setUserLogCookie={setUserLogCookie} />
         </Route>
+        <Route path="/slider/">
+          <Slider />
+        </Route>
         <Route path="/">
-          <Home search={search} />
+          <Home search={search} sortPrice={sortPrice} />
         </Route>
       </Switch>
     </Router>

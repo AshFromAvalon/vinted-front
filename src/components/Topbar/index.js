@@ -12,10 +12,14 @@ const Topbar = ({
   setShowModal,
   search,
   setSearch,
+  sortPrice,
+  setSortPrice,
+  children,
 }) => {
   const searchIcon = <FontAwesomeIcon icon={faSearch} />;
 
   const [placeholder, setPlaceholder] = useState("Chercher");
+  const [checked, setChecked] = useState("");
 
   const handleFocus = () => {
     setPlaceholder("");
@@ -25,9 +29,13 @@ const Topbar = ({
     setPlaceholder("Chercher");
   };
 
-  const handleChange = (event) => {
+  const handleSearchChange = (event) => {
     setSearch(event);
-    console.log(search);
+  };
+
+  const handleSortChange = () => {
+    setChecked(!checked);
+    checked ? setSortPrice("price-asc") : setSortPrice("price-desc");
   };
 
   const history = useHistory();
@@ -56,7 +64,7 @@ const Topbar = ({
                 placeholder={placeholder}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                onChange={(event) => handleChange(event.target.value)}
+                onChange={(event) => handleSearchChange(event.target.value)}
               />
             </div>
           </div>
@@ -80,11 +88,21 @@ const Topbar = ({
         <div className="top-navbar">
           <div className="topbar-nav-container">
             <div className="topbar-nav-menu">
-              <nav>
-                <span>Link 1</span>
-                <span>Link 2</span>
-                <span>Link 3</span>
-              </nav>
+              <div className="topbar-nav-menu-sort">
+                <span className="topbar-nav-menu-text">prix croissant</span>
+                <input
+                  className="topbar-nav-menu-sort-checkbox"
+                  type="checkbox"
+                  id="switch"
+                  checked={checked}
+                  onChange={handleSortChange}
+                />
+                <label htmlFor="switch">Toggle</label>
+              </div>
+              <div className="topbar-nav-menu-range">
+                <span className="topbar-nav-menu-text">price range</span>
+                <div></div>
+              </div>
             </div>
           </div>
         </div>
