@@ -58,9 +58,11 @@ const Publish = ({ userToken }) => {
             onSubmit={(event) => handleSubmit(event)}
           >
             <div className="publish-form-content">
-              <label htmlFor="picture" className="publish-form-label">
-                Upload
-              </label>
+              <div className="border">
+                <label htmlFor="picture" className="publish-form-label-upload">
+                  + ajouter un fichier
+                </label>
+              </div>
               <input
                 type="file"
                 className="publish-form-input"
@@ -70,7 +72,7 @@ const Publish = ({ userToken }) => {
             </div>
 
             <div className="publish-form-content">
-              <div className="publish-form-content-col">
+              <div className="publish-form-content-col-l">
                 <label htmlFor="title" className="publish-form-label">
                   Titre
                 </label>
@@ -78,14 +80,16 @@ const Publish = ({ userToken }) => {
                   Description
                 </label>
               </div>
-              <div className="publish-form-content-col">
+              <div className="publish-form-content-col-r">
                 <input
+                  placeholder="ex: Veste en jean"
                   type="text"
                   className="publish-form-input"
                   id="title"
                   onChange={(event) => setTitle(event.target.value)}
                 />
                 <input
+                  placeholder="ex: Veste en jean Levi's, peu portée..."
                   type="text"
                   className="publish-form-input"
                   id="description"
@@ -95,7 +99,7 @@ const Publish = ({ userToken }) => {
             </div>
 
             <div className="publish-form-content">
-              <div className="publish-form-content-col">
+              <div className="publish-form-content-col-l">
                 <label htmlFor="condition" className="publish-form-label">
                   Etat
                 </label>
@@ -113,32 +117,37 @@ const Publish = ({ userToken }) => {
                 </label>
               </div>
 
-              <div className="publish-form-content-col">
+              <div className="publish-form-content-col-r">
                 <input
+                  placeholder="ex: Bon"
                   type="text"
                   className="publish-form-input"
                   id="condition"
                   onChange={(event) => setCondition(event.target.value)}
                 />
                 <input
+                  placeholder="ex: Paris"
                   type="text"
                   className="publish-form-input"
                   id="city"
                   onChange={(event) => setCity(event.target.value)}
                 />
                 <input
+                  placeholder="ex: Levi's"
                   type="text"
                   className="publish-form-input"
                   id="brand"
                   onChange={(event) => setBrand(event.target.value)}
                 />
                 <input
+                  placeholder="ex: 44"
                   type="text"
                   className="publish-form-input"
                   id="size"
                   onChange={(event) => setSize(event.target.value)}
                 />
                 <input
+                  placeholder="ex: Bleu"
                   type="text"
                   className="publish-form-input"
                   id="color"
@@ -148,14 +157,15 @@ const Publish = ({ userToken }) => {
             </div>
 
             <div className="publish-form-content">
-              <div className="publish-form-content-col">
+              <div className="publish-form-content-col-l">
                 <label htmlFor="price" className="publish-form-label">
                   Prix
                 </label>
               </div>
 
-              <div className="publish-form-content-col">
+              <div className="publish-form-content-col-r">
                 <input
+                  placeholder="0.00 €"
                   type="number"
                   className="publish-form-input"
                   id="price"
