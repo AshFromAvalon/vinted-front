@@ -15,6 +15,7 @@ import Home from "../../containers/Home/index";
 import Product from "../../containers/Product/index";
 import Signin from "../../containers/Signin/index";
 import Publish from "../../containers/Publish/index";
+import Test from "../../containers/Test/index";
 
 // Components
 import Slider from "../Slider/index";
@@ -80,6 +81,9 @@ function App() {
           ) : (
             <Signin setUserLogCookie={setUserLogCookie} publish={publish} />
           )}
+        </Route>
+        <Route path="/test/">
+          <Test />
         </Route>
         <Route path="/">
           <Home

@@ -1,0 +1,6 @@
+@import "../../styles/styles.scss";
+
+.container {
+  @include container;
+  width: 400px;
+}

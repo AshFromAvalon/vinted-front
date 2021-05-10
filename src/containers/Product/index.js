@@ -1,9 +1,11 @@
 import "./style.product.scss";
+// import "../../components/Slideshow/style.slideshow.scss";
 
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import Avatar from "../../components/Avatar/index";
+import Slideshow from "../../components/Slideshow/index";
 
 const axios = require("axios");
 
@@ -21,6 +23,7 @@ const Product = () => {
     const fetchOffer = async () => {
       try {
         const response = await axios.get(`${ReacteurApi}${id}`);
+        console.log(response.data);
         setOffer(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -36,7 +39,11 @@ const Product = () => {
         <div className="product-container">
           <div className="product-image-container">
             <div className="product-image">
-              <img src={offer.product_image.secure_url} alt="" />
+              {offer.product_pictures.length <= 1 ? (
+                <img src={offer.product_image.secure_url} alt="" />
+              ) : (
+                <Slideshow images={offer.product_pictures} />
+              )}
             </div>
           </div>
           <div className="product-infos-container">

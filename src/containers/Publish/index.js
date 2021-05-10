@@ -12,9 +12,7 @@ const Publish = ({ userToken }) => {
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
   const [price, setPrice] = useState();
-
   const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
 
   const myApi = "https://react-vinted-back.herokuapp.com/offer/publish";
   const ReacteurApi =
@@ -40,9 +38,6 @@ const Publish = ({ userToken }) => {
           authorization: `Bearer ${userToken}`,
         },
       });
-      console.log(response);
-      setData(response.data);
-      setIsLoading(false);
     } catch (error) {
       console.log(error.message);
     }
