@@ -6,7 +6,13 @@ const OfferCard = ({ data }) => {
   return (
     <div className="offer-card-container">
       <div className="offer-card-owner">
-        <Avatar imageUrl={data.owner.account.avatar.secure_url} />
+        <Avatar
+          imageUrl={
+            data.owner.account.avatar
+              ? data.owner.account.avatar.secure_url
+              : null
+          }
+        />
         <span className="offer-card-owner-username">
           {data.owner.account.username}
         </span>

@@ -32,7 +32,7 @@ const Product = () => {
 
   return !isLoading ? (
     <div className="site-wrap">
-      <div className="bckg">
+      <div className="bckg-product">
         <div className="product-container">
           <div className="product-image-container">
             <div className="product-image">
@@ -73,7 +73,11 @@ const Product = () => {
             </div>
             <div className="product-infos-owner">
               <Avatar
-                imageUrl={offer.owner.account.avatar.secure_url}
+                imageUrl={
+                  offer.owner.account.avatar
+                    ? offer.owner.account.avatar.secure_url
+                    : null
+                }
                 size="medium"
               />
               <span className="product-infos-owner-username">

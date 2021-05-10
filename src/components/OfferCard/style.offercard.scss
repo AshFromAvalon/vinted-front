@@ -25,6 +25,18 @@
       width: 25px;
       border-radius: 50%;
     }
+    .avatar-small {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      background-color: $prim-grey;
+      font-family: $font-main;
+      font-size: 0.8rem;
+      color: white;
+    }
   }
 
   .offer-card-cover {

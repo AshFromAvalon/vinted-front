@@ -25,7 +25,7 @@ const Publish = ({ userToken }) => {
       event.preventDefault();
 
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append("picture", file);
       formData.append("title", title);
       formData.append("description", description);
       formData.append("condition", condition);
@@ -50,7 +50,7 @@ const Publish = ({ userToken }) => {
 
   return (
     <div className="site-wrap">
-      <div className="bckg">
+      <div className="bckg-publish">
         <div className="publish-container">
           <h2>Publier une offre</h2>
           <form
@@ -61,16 +61,11 @@ const Publish = ({ userToken }) => {
               <label htmlFor="picture" className="publish-form-label">
                 Upload
               </label>
-              {isLoading ? (
-                <div>Chargement...</div>
-              ) : (
-                <img src={data.secure_url} alt="" />
-              )}
               <input
                 type="file"
                 className="publish-form-input"
                 id="picture"
-                onChange={(event) => setFile(event.target.value)}
+                onChange={(event) => setFile(event.target.files[0])}
               />
             </div>
 
@@ -88,14 +83,12 @@ const Publish = ({ userToken }) => {
                   type="text"
                   className="publish-form-input"
                   id="title"
-                  value="Veste Levi's"
                   onChange={(event) => setTitle(event.target.value)}
                 />
                 <input
                   type="text"
                   className="publish-form-input"
                   id="description"
-                  value="Veste en jean Levi's"
                   onChange={(event) => setDescription(event.target.value)}
                 />
               </div>
@@ -125,35 +118,30 @@ const Publish = ({ userToken }) => {
                   type="text"
                   className="publish-form-input"
                   id="condition"
-                  value="Bon état"
                   onChange={(event) => setCondition(event.target.value)}
                 />
                 <input
                   type="text"
                   className="publish-form-input"
                   id="city"
-                  value="Paris"
                   onChange={(event) => setCity(event.target.value)}
                 />
                 <input
                   type="text"
                   className="publish-form-input"
                   id="brand"
-                  value="Levis"
                   onChange={(event) => setBrand(event.target.value)}
                 />
                 <input
                   type="text"
                   className="publish-form-input"
                   id="size"
-                  value="44"
                   onChange={(event) => setSize(event.target.value)}
                 />
                 <input
                   type="text"
                   className="publish-form-input"
                   id="color"
-                  value="Bleu Claire"
                   onChange={(event) => setColor(event.target.value)}
                 />
               </div>
@@ -171,7 +159,6 @@ const Publish = ({ userToken }) => {
                   type="number"
                   className="publish-form-input"
                   id="price"
-                  value="30"
                   onChange={(event) => setPrice(event.target.value)}
                 />
               </div>
