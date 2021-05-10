@@ -10,7 +10,7 @@ const axios = require("axios");
 
 // COMPONENT
 
-const Home = ({ search, sortPrice, minVal, maxVal }) => {
+const Home = ({ search, sortPrice, minVal, maxVal, userToken, setPublish }) => {
   // States
   const [data, setData] = useState({});
   const [page, setPage] = useState(1);
@@ -48,7 +48,7 @@ const Home = ({ search, sortPrice, minVal, maxVal }) => {
   // Render component
   return !isLoading ? (
     <div className="site-wrap">
-      <Header />
+      <Header userToken={userToken} setPublish={setPublish} />
       <div className="offers-container">
         <div className="offers-container-wrap">
           {/* Generate offer cards */}

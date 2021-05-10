@@ -3,7 +3,12 @@ import "./style.app.scss";
 // Dependencies
 import Cookies from "js-cookie";
 import { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 // Containers
 import Home from "../../containers/Home/index";
@@ -17,13 +22,16 @@ import Topbar from "../Topbar/index";
 import Modal from "../Modal/index";
 
 function App() {
+  // States
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const [showModal, setShowModal] = useState(false);
   const [search, setSearch] = useState("");
   const [sortPrice, setSortPrice] = useState("price-asc");
   const [minVal, setMinVal] = useState(0);
   const [maxVal, setMaxVal] = useState(40);
+  const [publish, setPublish] = useState(false);
 
+  // UserToken Cokkie set up
   const setUserLogCookie = (token) => {
     if (token) {
       Cookies.set("userToken", token, { expires: 14 });
@@ -67,7 +75,11 @@ function App() {
           <Signin setUserLogCookie={setUserLogCookie} />
         </Route>
         <Route path="/publish/">
-          <Publish userToken={userToken} />
+          {userToken ? (
+            <Publish userToken={userToken} />
+          ) : (
+            <Signin setUserLogCookie={setUserLogCookie} publish={publish} />
+          )}
         </Route>
         <Route path="/">
           <Home
@@ -75,6 +87,8 @@ function App() {
             sortPrice={sortPrice}
             minVal={minVal}
             maxVal={maxVal}
+            userToken={userToken}
+            setPublish={setPublish}
           />
         </Route>
       </Switch>

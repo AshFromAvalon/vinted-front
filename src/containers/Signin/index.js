@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const axios = require("axios");
 
-const Signin = ({ setUserLogCookie }) => {
+const Signin = ({ setUserLogCookie, publish }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -23,7 +23,7 @@ const Signin = ({ setUserLogCookie }) => {
           password: password,
         });
         setUserLogCookie(response.data.token);
-        history.push("/");
+        history.push(publish ? "/publish/" : "/");
       } catch (error) {
         console.log(error.message);
       }
