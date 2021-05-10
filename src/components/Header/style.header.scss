@@ -46,6 +46,7 @@
       }
 
       .header-box-content-cta {
+        text-align: center;
         margin: 20px 0;
         border: none;
         width: 200px;
@@ -53,7 +54,7 @@
         font-size: 1rem;
         color: white;
         background-color: $prim-blue;
-        padding: 10px 0;
+        padding: 10px;
         border-radius: 5px;
         &:hover {
           cursor: pointer;

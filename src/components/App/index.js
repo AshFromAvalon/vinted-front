@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../../containers/Home/index";
 import Product from "../../containers/Product/index";
 import Signin from "../../containers/Signin/index";
+import Publish from "../../containers/Publish/index";
 
 // Components
 import Slider from "../Slider/index";
@@ -65,8 +66,8 @@ function App() {
         <Route path="/signin/">
           <Signin setUserLogCookie={setUserLogCookie} />
         </Route>
-        <Route path="/slider/">
-          <Slider />
+        <Route path="/publish/">
+          <Publish userToken={userToken} />
         </Route>
         <Route path="/">
           <Home
