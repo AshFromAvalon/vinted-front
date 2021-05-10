@@ -16,4 +16,41 @@
       justify-content: flex-start;
     }
   }
+
+  .pages-container {
+    @include container;
+    display: flex;
+    justify-content: center;
+
+    .offers-pages {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-bottom: 15px;
+
+      .offers-pages-text {
+        font-family: $font-main;
+        font-size: 0.8rem;
+        margin-right: 5px;
+      }
+
+      .offers-pages-page {
+        margin-left: 5px;
+        font-family: $font-main;
+        font-size: 1.2rem;
+        color: $prim-blue;
+
+        &:hover {
+          cursor: pointer;
+        }
+        &:not(:last-child):after {
+          content: ", ";
+        }
+        &:last-child::after {
+          content: "...";
+        }
+      }
+    }
+  }
 }

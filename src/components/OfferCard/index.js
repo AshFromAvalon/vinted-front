@@ -12,6 +12,7 @@ const OfferCard = ({ data }) => {
               ? data.owner.account.avatar.secure_url
               : null
           }
+          size="small"
         />
         <span className="offer-card-owner-username">
           {data.owner.account.username}
