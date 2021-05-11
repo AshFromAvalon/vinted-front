@@ -14,6 +14,18 @@
     justify-content: space-between;
     width: 600px;
 
+    .succeeded {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: yellowgreen;
+      padding: 20px 0;
+      border-radius: 5px;
+      font-family: $font-main;
+      color: white;
+      opacity: 0.7;
+    }
+
     .checkout-form-order-title {
       font-family: $font-main;
       font-size: 1.3rem;

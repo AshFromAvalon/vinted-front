@@ -26,9 +26,12 @@ const Checkout = ({ title, price, description, offerId }) => {
       const response = await axios.post(ReacteurApi, {
         token: stripeToken,
         title: title,
-        amount: 100,
+        amount: price * 100,
       });
       console.log(response.data);
+      if (response.data.status === "succeeded") {
+        setIsCompleted(true);
+      }
     } catch (error) {
       console.log(error.message);
     }
@@ -70,7 +73,11 @@ const Checkout = ({ title, price, description, offerId }) => {
           <CardElement />
           <div className="border"></div>
         </div>
-        <button className="checkout-cta">Valider le paiement</button>
+        {isCompleted ? (
+          <div className="succeeded">Paiement effectué</div>
+        ) : (
+          <button className="checkout-cta">Valider le paiement</button>
+        )}
       </form>
     </div>
   );
