@@ -9,7 +9,7 @@ import axios from "axios";
 import Avatar from "../../components/Avatar/index";
 import Slideshow from "../../components/Slideshow/index";
 
-const Product = ({ userToken, setIsBuying }) => {
+const Product = ({ userToken }) => {
   // States
   const [offer, setOffer] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -43,11 +43,15 @@ const Product = ({ userToken, setIsBuying }) => {
       ? history.push("/payment/", {
           title: offer.product_name,
           price: offer.product_price,
+          description: offer.product_description,
+          offerId: offer._id,
         })
       : history.push("/signin/", {
           fromProductCta: true,
           title: offer.product_name,
           price: offer.product_price,
+          description: offer.product_description,
+          offerId: offer._id,
         });
   };
 

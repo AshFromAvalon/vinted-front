@@ -1,1 +1,60 @@
 @import "../../styles/styles.scss";
+
+.checkout-container {
+  height: 500px;
+  background-color: white;
+  @include container;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 600px;
+
+    .checkout-form-order-title {
+      font-family: $font-main;
+      font-size: 1.3rem;
+    }
+
+    .checkout-form-text {
+      font-family: $font-main;
+      margin-bottom: 15px;
+    }
+    .border {
+      width: 100%;
+      margin: 5px 0;
+      border-bottom: 2px solid $bg-grey;
+    }
+
+    .checkout-form-order-info {
+      display: flex;
+      justify-content: space-between;
+
+      .checkout-form-order-info-content {
+        font-family: $font-main;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .checkout-cta {
+    margin: 20px 0;
+    border: none;
+    font-family: $font-main;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $prim-blue;
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      opacity: 0.7;
+    }
+  }
+}

@@ -34,6 +34,8 @@ const Signin = ({ setUserLogCookie }) => {
         history.push("/payment/", {
           title: location.state.title,
           price: location.state.price,
+          description: location.state.description,
+          offerId: location.state.offerId,
         });
       } else {
         history.push("/");
