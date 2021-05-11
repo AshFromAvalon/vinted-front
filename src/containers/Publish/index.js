@@ -1,8 +1,12 @@
 import "./style.publish.scss";
+
+// Dependencies
 import { useState } from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 const Publish = ({ userToken }) => {
+  // States
   const [file, setFile] = useState();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -14,10 +18,12 @@ const Publish = ({ userToken }) => {
   const [price, setPrice] = useState();
   const [data, setData] = useState();
 
+  // End points
   const myApi = "https://react-vinted-back.herokuapp.com/offer/publish";
   const ReacteurApi =
     "https://lereacteur-vinted-api.herokuapp.com/offer/publish";
 
+  // Call server to create an offer
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();

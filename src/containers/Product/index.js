@@ -1,24 +1,29 @@
 import "./style.product.scss";
-// import "../../components/Slideshow/style.slideshow.scss";
 
-import { useParams } from "react-router-dom";
+// Dependencies
+import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
+// Components
 import Avatar from "../../components/Avatar/index";
 import Slideshow from "../../components/Slideshow/index";
 
-const axios = require("axios");
-
-// COMPONENT
-
-const Product = () => {
+const Product = ({ userToken, setIsBuying }) => {
+  // States
   const [offer, setOffer] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+  // retreive id from query ur params
   const { id } = useParams();
 
+  const history = useHistory();
+
+  // End points
   const myApi = "https://react-vinted-back.herokuapp.com/offer/";
   const ReacteurApi = "https://lereacteur-vinted-api.herokuapp.com/offer/";
 
+  // Call server to receive offer
   useEffect(() => {
     const fetchOffer = async () => {
       try {
@@ -32,6 +37,19 @@ const Product = () => {
     };
     fetchOffer();
   }, [id]);
+
+  const AddToCheckout = () => {
+    userToken
+      ? history.push("/payment/", {
+          title: offer.product_name,
+          price: offer.product_price,
+        })
+      : history.push("/signin/", {
+          fromProductCta: true,
+          title: offer.product_name,
+          price: offer.product_price,
+        });
+  };
 
   return !isLoading ? (
     <div className="site-wrap">
@@ -91,7 +109,10 @@ const Product = () => {
                 {offer.owner.account.username}
               </span>
             </div>
-            <div className="product-cta">Acheter</div>
+
+            <div className="product-cta" onClick={AddToCheckout}>
+              Acheter
+            </div>
           </div>
         </div>
       </div>

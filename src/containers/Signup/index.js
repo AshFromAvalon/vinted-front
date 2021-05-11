@@ -1,19 +1,23 @@
 import "./style.signup.scss";
+
+// Dependencies
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-
-const axios = require("axios");
+import axios from "axios";
 
 const Signup = ({ setUserLogCookie }) => {
+  // States
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  // End points
   const myApi = "https://react-vinted-back.herokuapp.com/user/sign-up";
   const ReacteurApi = "https://lereacteur-vinted-api.herokuapp.com/user/signup";
 
   const history = useHistory();
 
+  // Call server to create a new user
   const handleSubmit = (event) => {
     event.preventDefault();
 

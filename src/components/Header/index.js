@@ -1,8 +1,19 @@
 import "./style.header.scss";
-import tearSvg from "../../assets/images/tear.42d6cec6.svg";
-import { Link } from "react-router-dom";
 
-const Header = ({ setPublish }) => {
+// Dependencies
+import tearSvg from "../../assets/images/tear.42d6cec6.svg";
+import { Link, useHistory } from "react-router-dom";
+
+const Header = ({ userToken }) => {
+  const history = useHistory();
+  const handleClick = () => {
+    userToken
+      ? history.push("/publish/")
+      : history.push("/signin/", {
+          fromPublishCta: true,
+        });
+  };
+
   return (
     <div className="header-bg">
       <img src={tearSvg} alt="" className="tear-svg" />
@@ -12,13 +23,9 @@ const Header = ({ setPublish }) => {
             <span className="header-box-content-tagline">
               Prêts à faire du tri dans vos placards ?
             </span>
-            <Link
-              to="/publish/"
-              onClick={() => setPublish(true)}
-              className="header-box-content-cta"
-            >
+            <button onClick={handleClick} className="header-box-content-cta">
               Commencer à vendre
-            </Link>
+            </button>
             <span className="header-box-content-about">
               Découvrir comment ça marche
             </span>

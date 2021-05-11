@@ -1,16 +1,15 @@
 import "./style.home.scss";
 
+// Dependencies
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
+// Components
 import Header from "../../components/Header/index";
 import OfferCard from "../../components/OfferCard/index";
 
-const axios = require("axios");
-
-// COMPONENT
-
-const Home = ({ search, sortPrice, minVal, maxVal, userToken, setPublish }) => {
+const Home = ({ search, sortPrice, minVal, maxVal, userToken }) => {
   // States
   const [data, setData] = useState({});
   const [page, setPage] = useState(1);
@@ -48,7 +47,7 @@ const Home = ({ search, sortPrice, minVal, maxVal, userToken, setPublish }) => {
   // Render component
   return !isLoading ? (
     <div className="site-wrap">
-      <Header userToken={userToken} setPublish={setPublish} />
+      <Header userToken={userToken} />
       <div className="offers-container">
         <div className="offers-container-wrap">
           {/* Generate offer cards */}

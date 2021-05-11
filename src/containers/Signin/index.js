@@ -1,34 +1,46 @@
 import "./style.signin.scss";
+
+// Dependencies
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
+import axios from "axios";
 
-const axios = require("axios");
-
-const Signin = ({ setUserLogCookie, publish }) => {
+const Signin = ({ setUserLogCookie }) => {
+  // States
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const location = useLocation();
   const history = useHistory();
 
+  // End points
   const myApi = "https://react-vinted-back.herokuapp.com/user/login";
   const ReacteurApi = "https://lereacteur-vinted-api.herokuapp.com/user/login";
 
-  const handleSubmit = (event) => {
+  // Call server to log user in
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    try {
+      const response = await axios.post(ReacteurApi, {
+        email: email,
+        password: password,
+      });
+      setUserLogCookie(response.data.token);
 
-    const postData = async () => {
-      try {
-        const response = await axios.post(ReacteurApi, {
-          email: email,
-          password: password,
+      // Redirect user based on the previous action
+      if (location.state.fromPublishCta) {
+        history.push("/publish/");
+      } else if (location.state.fromProductCta) {
+        history.push("/payment/", {
+          title: location.state.title,
+          price: location.state.price,
         });
-        setUserLogCookie(response.data.token);
-        history.push(publish ? "/publish/" : "/");
-      } catch (error) {
-        console.log(error.message);
+      } else {
+        history.push("/");
       }
-    };
-    postData();
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   return (
     <div className="site-wrap">

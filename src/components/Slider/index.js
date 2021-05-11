@@ -1,6 +1,7 @@
 import "./style.slider.scss";
-import PropTypes from "prop-types";
 
+// Dependencies
+import PropTypes from "prop-types";
 import { useState, useRef, useCallback, useEffect } from "react";
 
 const Slider = ({ min, max, minVal, maxVal, setMinVal, setMaxVal }) => {
