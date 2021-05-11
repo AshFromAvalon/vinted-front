@@ -12,9 +12,7 @@ const Payment = ({ userToken }) => {
   const location = useLocation();
   const { title, price, description, offerId } = location.state;
 
-  const stripePromise = loadStripe(
-    "pk_test_51IptNiFroDXaXl9KSjWQmgk8uiEsSN82VrrHtF5T8EsWRsyeKoPeXfvj1lL7Fc4PqTllAXWdPKugTPd4hmt0qm3y003vxgt15X"
-  );
+  const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
 
   return (
     <div className="site-wrap">

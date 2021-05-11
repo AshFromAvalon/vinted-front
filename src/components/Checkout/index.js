@@ -6,6 +6,8 @@ import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
 
 const Checkout = ({ title, price, description, offerId }) => {
+  const [isCompleted, setIsCompleted] = useState(false);
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -14,19 +16,22 @@ const Checkout = ({ title, price, description, offerId }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const cardElement = elements.getElement(CardElement);
+    try {
+      const cardElement = elements.getElement(CardElement);
 
-    const stripeResponse = await stripe.createToken(cardElement, {
-      name: title,
-    });
-    const stripeToken = stripeResponse.token.id;
-    const response = await axios.post(ReacteurApi, {
-      token: stripeToken,
-      title: title,
-      amount: 100,
-    });
-
-    console.log(response.data);
+      const stripeResponse = await stripe.createToken(cardElement, {
+        name: title,
+      });
+      const stripeToken = stripeResponse.token.id;
+      const response = await axios.post(ReacteurApi, {
+        token: stripeToken,
+        title: title,
+        amount: 100,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
