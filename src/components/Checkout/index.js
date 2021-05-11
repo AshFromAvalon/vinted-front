@@ -9,8 +9,24 @@ const Checkout = ({ title, price, description, offerId }) => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const handleSubmit = (event) => {
+  // End points
+  const ReacteurApi = "https://lereacteur-vinted-api.herokuapp.com/payment";
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const cardElement = elements.getElement(CardElement);
+
+    const stripeResponse = await stripe.createToken(cardElement, {
+      name: title,
+    });
+    const stripeToken = stripeResponse.token.id;
+    const response = await axios.post(ReacteurApi, {
+      token: stripeToken,
+      title: title,
+      amount: 100,
+    });
+
+    console.log(response.data);
   };
 
   return (
