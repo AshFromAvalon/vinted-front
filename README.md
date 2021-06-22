@@ -26,7 +26,7 @@ It display several basic features.
 
 ## Demo 
 
-Front end is hosted on Netlify and available, [click here to try it](https://thomas-lebihan-vinted-front.netlify.app/). 
+Front end is hosted on Netlify: [click here to try it](https://thomas-lebihan-vinted-front.netlify.app/). 
 
 #### Product page
 
