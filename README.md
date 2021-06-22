@@ -9,6 +9,7 @@
 * [Demo](#demo)
 * [Technologies](#technologies)
 * [How to use](#how-to-use)
+* [Improvements](#improvements)
 
 ## General Info
 
@@ -69,3 +70,8 @@ $ yarn start
 * username: Ash
 * email: ash@gmail.com
 * pwd: ash
+
+## Improvements
+
+* Responsive design
+* Pagination fetaure
