@@ -45,9 +45,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * axios version: 0.21.1
 * react-multi-carousel version: 2.6.2
 * react-router-dom version: 5.2.0
+* js-cookie version: 2.2.1
 
 
-## Setup
+## How To Use
 To clone and run this application, you'll need [Git](https://git-scm.com/) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com/)) installed on your computer. From your command line:
 
 ```diff
@@ -63,3 +64,8 @@ $ yarn install
 # Run the app
 $ yarn start
 ```
+
+#### Test Account
+* username: Ash
+* email: ash@gmail.com
+* pwd: ash
