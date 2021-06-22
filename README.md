@@ -57,7 +57,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com/) and [
 $ git clone git@github.com:AshFromAvalon/vinted-front.git
 
 # Go into the repository
-$ cd deliveroo-front
+$ cd vinted-front
 
 # Install dependencies
 $ yarn install
